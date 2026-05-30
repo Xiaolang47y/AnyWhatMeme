@@ -1,0 +1,76 @@
+# What Meme 配置文件
+# 使用说明：
+# 1. 将原图片放入 source_images 文件夹
+# 2. 在此文件中配置每张图片的文字内容
+# 3. 运行程序：python generate_meme.py
+
+# 字体设置
+font:
+  # 方式1：指定字体文件路径（推荐，支持任意字体）
+  # 示例：
+  #   file: "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc"
+  #   index: 2          # TTC字体集合需要指定索引（2=简体中文，0=日文，3=繁体中文）
+  #   普通TTF/OTF字体不需要index参数
+  
+  # 方式2：使用预设字体名称（仅支持以下内置字体）
+  #   name: "Noto Sans CJK SC"
+  #   可选值：Noto Sans CJK SC, Noto Sans CJK TC, Noto Sans CJK JP, 
+  #          Noto Serif CJK SC, DejaVu Sans, DejaVu Serif, 
+  #          Liberation Sans, Arial, Microsoft YaHei
+  
+  # 当前配置（二选一，file优先级高于name）
+  file: "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc"
+  index: 2
+  # name: "Noto Sans CJK SC"
+  
+  # 标题文字大小（大标题，如 "305"）
+  title_size: 72
+  # 副标题文字大小（小标题，如 "Use Proxy"）
+  subtitle_size: 28
+
+# 图片设置
+image:
+  # 处理后的图片宽度（像素），高度会自动按比例调整
+  width: 600
+  # 内边框（黑色）宽度（像素）
+  inner_border: 3
+  # 外边框（白色）宽度（像素）
+  outer_border: 2
+  # 图片左右两侧留黑边宽度（像素）
+  side_margin: 20
+  # 图片上方留黑边宽度（像素）
+  top_margin: 20
+
+# 文字间距设置（像素）
+text:
+  # 标题距离图片边框的间距（仅在有副标题时生效）
+  gap_title: 0
+  # 主标题与副标题之间的间距（仅在有副标题时生效）
+  gap_subtitle: 25
+  # 最后一行文字距离底部的间距（始终生效）
+  bottom_margin: 35
+
+# Meme 列表配置
+memes:
+  # 示例 1：对应示例图中的 305 Use Proxy
+  - source_file: "example.jpg"        # source_images 文件夹中的原文件名
+    title: "标题"                       # 大标题文字（支持换行，用 \n 分隔）
+    subtitle: "副标题"              # 副标题文字（支持换行，用 \n 分隔）
+    title_size: 72                     # 可选：单独设置此图的标题大小（覆盖全局设置）
+    subtitle_size: 24                  # 可选：单独设置此图的副标题大小（覆盖全局设置）
+
+  # 示例 2：多行文字示例
+  - source_file: "example2.jpg"
+    title: "第一行\n第二行"            # 使用 \n 实现换行
+    subtitle: "这是一个副标题"
+    # 不设置 title_size/subtitle_size 则使用全局设置
+
+  # 示例 3：只有标题，没有副标题
+  - source_file: "example3.png"
+    title: "只有标题"
+    subtitle: ""                       # 留空表示不显示副标题
+
+  # 添加更多 meme 配置...
+  # - source_file: "your_image.jpg"
+  #   title: "你的标题"
+  #   subtitle: "你的副标题"
