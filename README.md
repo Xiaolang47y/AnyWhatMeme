@@ -6,8 +6,8 @@ What Meme生成器
 
 将想生成的图片放置与source_images文件夹内，修改配置文件后运行generate_meme.py即可。
 
-生成后的文件存在output文件夹中。
+运行后，将会把图片转换为png格式，并清除元数据，存放在processed_images文件夹中
 
-除source_images文件夹内的文件外所有内容都来源于TRAE AI生成，请不放心使用。
+生成后的文件将会以xxx_meme.png的格式重命名，存在output文件夹中。
 
-需要Pillow>=10.0.0 PyYAML>=6.0
+代码部分内容来源于TRAE AI生成，请不放心使用。
